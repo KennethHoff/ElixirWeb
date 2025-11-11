@@ -3,10 +3,7 @@ config :ash, policies: [show_policy_breakdowns?: true]
 
 # Configure your database
 config :helpdesk, Helpdesk.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "helpdesk_dev",
+  url: System.get_env("PG_URL"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
